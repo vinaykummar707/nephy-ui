@@ -9,7 +9,7 @@ const TopNavBar = () => {
 	return (
 		<div className="h-14 border-b px-4 inline-flex items-center justify-between dark:bg-neutral-800 dark:border-neutral-700 bg-white">
 			<div className="inline-flex items-center gap-2">
-				<div className="size-6 bg-primary rounded-lg"></div>
+				<div className="size-6 bg-secondary rounded-lg"></div>
 				<h1 className="font-bold dark:text-white text-md">Nephbuddy</h1>
 			</div>
 

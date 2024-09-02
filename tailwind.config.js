@@ -26,8 +26,8 @@ export default {
 					foreground: 'hsl(var(--primary-foreground))',
 				},
 				secondary: {
-					DEFAULT: colors.blue['600'],
-					foreground: colors.white,
+					DEFAULT: colors.lime['400'],
+					foreground: colors.black,
 				},
 				muted: {
 					DEFAULT: 'hsl(var(--muted))',

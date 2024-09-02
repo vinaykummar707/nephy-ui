@@ -76,7 +76,7 @@ const LoginPage = ({ role = UserRoles.HOSPITAL_ADMIN }: any) => {
 	return (
 		<div className="flex-1  flex flex-col items-center justify-center">
 			/
-			<div className="w-[60%] flex flex-col  gap-8">
+			<div className="w-[65%] flex flex-col  gap-8">
 				<div className="space-y-1">
 					<h1 className="text-3xl w-[300px] tracking-tight font-extrabold">
 						Hey! Thanks For Coming Back
