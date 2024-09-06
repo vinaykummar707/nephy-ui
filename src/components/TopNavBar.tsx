@@ -1,10 +1,11 @@
-import useUserStore from '@/store/useUserStore';
-import { UserRoles } from '@/enums.ts';
-import { Button } from './ui/button';
-import { ArrowSquareLeft, Logout } from 'iconsax-react';
+import useUserStore from "@/store/useUserStore";
+import { UserRoles } from "@/enums.ts";
+import { Button } from "./ui/button";
+import { ArrowSquareLeft, Logout } from "iconsax-react";
+import Avvvatars from "avvvatars-react";
 
 const TopNavBar = () => {
-	const { user, logout } = useUserStore();
+  const { user, logout } = useUserStore();
 
 	return (
 		<div className="h-14 border-b px-4 inline-flex items-center justify-between dark:bg-neutral-800 dark:border-neutral-700 bg-white">

@@ -10,24 +10,21 @@ export interface DialysisUnit {
   _id: string;
 }
 interface DialysisUnitState {
-  dialysisUnit: DialysisUnit | null;
-  setDialysisUnit: (DialysisUnit: DialysisUnit) => void;
+  activeDialysisUnit: DialysisUnit | null;
+  dialysisUnits: [DialysisUnit] | [];
+  setActiveDialysisUnit: (DialysisUnit: DialysisUnit) => void;
+  setDialysisUnits: (DialysisUnit: [DialysisUnit]) => void;
 }
 
-// const getDialysisUnit = () => {
-//   const DialysisUnitFromLStorage = localStorage.getItem("DialysisUnit");
-//   if (DialysisUnitFromLStor
-//   age) {
-//     return JSON.parse(DialysisUnitFromLStorage);
-//   }
-//   return null;
-// };
 
 const useDialysisUnitStore = create<DialysisUnitState>((set) => ({
-  dialysisUnit: null, // Initial DialysisUnit state (null when logged out)
+  activeDialysisUnit: null, // Initial DialysisUnit state (null when logged out)
+  dialysisUnits: [], // Initial DialysisUnit state (null when logged out)
 
   // Method to set the logged-in DialysisUnit
-  setDialysisUnit: (dialysisUnit: DialysisUnit) => set({ dialysisUnit }),
+  setActiveDialysisUnit: (activeDialysisUnit: DialysisUnit) =>
+    set({ activeDialysisUnit }),
+  setDialysisUnits: (dialysisUnits: [DialysisUnit]) => set({ dialysisUnits }),
 }));
 
 export default useDialysisUnitStore;

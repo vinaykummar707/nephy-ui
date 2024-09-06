@@ -1,12 +1,12 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 
 const NavItem = ({ icon, title, active, to }: any) => {
 	return (
 		<NavLink
 			to={to}
-			className={`inline-flex gap-2 rounded-md ${
-				active && 'bg-primary dark:bg-neutral-700'
-			}  items-center px-3 h-9`}
+			className={`inline-flex gap-2  rounded-md ${
+				active ? 'bg-primary dark:bg-neutral-700' : 'hover:bg-neutral-100'
+			}  items-center px-3 h-10`}
 		>
 			{icon}
 

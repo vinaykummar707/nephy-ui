@@ -1,5 +1,6 @@
-const Spinner = (props) => (
-  <div className="grid  place-items-center overflow-x-scroll rounded-lg p-3 lg:overflow-visible">
+const Spinner = ({ ttile }) => (
+  <div className="flex flex-col gap-">
+  <div className="grid  place-items-center  rounded-lg p-3 ">
     <svg
       className="text-gray-300 animate-spin"
       viewBox="0 0 64 64"
@@ -24,7 +25,10 @@ const Spinner = (props) => (
         className="text-gray-900"
       ></path>
     </svg>
+    </div>
+    <p className="text-neutral-400 text-xs">Getting Your Content</p>
   </div>
+
 );
 
 export default Spinner;

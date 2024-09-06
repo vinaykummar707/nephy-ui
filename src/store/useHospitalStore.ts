@@ -1,4 +1,5 @@
 // store/useHospitalStore.ts
+import { Hospital } from "iconsax-react";
 import { create } from "zustand";
 
 // Define the Zustand store

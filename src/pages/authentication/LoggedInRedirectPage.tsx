@@ -20,3 +20,4 @@ const LoggedInRedirectPage: React.FC<ProtectedRouteProps> = ({ children }) => {
 };
 
 export default LoggedInRedirectPage;
+ 

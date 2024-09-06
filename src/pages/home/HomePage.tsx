@@ -1,9 +1,11 @@
 import {
+  ArrowDown2,
   ArrowUp2,
   Driver,
   Element3,
   Flash,
   Graph,
+  Health,
   Hospital,
   Lock,
   Note,
@@ -16,16 +18,22 @@ import {
   Timer,
   Timer1,
   User,
+  WatchStatus,
 } from "iconsax-react";
 import NavItem from "../../components/NavItem";
 import { Outlet, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import TopNotificationBar from "../../components/TopNotificationBar";
 import TopNavBar from "../../components/TopNavBar";
 import useUserStore from "@/store/useUserStore";
+import { useMutation, useQueries, useQuery } from "@tanstack/react-query";
+import axios from "axios";
+import useHospitalStore from "@/store/useHospitalStore";
+import useDialysisUnitStore from "@/store/useDialysisUnitStore";
+import { Badge } from "@/components/ui/badge";
 
 const HomePage = () => {
-  const iconSize = 20;
+  const iconSize = 24;
   const location = useLocation();
   const { user } = useUserStore();
 
@@ -54,7 +62,7 @@ const HomePage = () => {
       label: "Running Dialysis",
       path: "activity",
       icon: (
-        <Flash
+        <Health
           variant={iconVariant("/activity")}
           className={iconColor("/activity")}
           size={iconSize}
@@ -62,7 +70,7 @@ const HomePage = () => {
       ),
     },
     {
-      label: "Dialysis Units",
+      label: "Departments",
       path: "dialysisUnits",
       icon: (
         <Hospital
@@ -96,12 +104,12 @@ const HomePage = () => {
     },
 
     {
-      label: "Dialysis Beds",
-      path: "beds",
+      label: "Machines",
+      path: "machines",
       icon: (
-        <RowHorizontal
-          variant={iconVariant("beds")}
-          className={iconColor("beds")}
+        <WatchStatus
+          variant={iconVariant("machines")}
+          className={iconColor("machines")}
           size={iconSize}
         />
       ),
@@ -152,28 +160,28 @@ const HomePage = () => {
       ),
     },
 
-    {
-      label: "Summaries",
-      path: "summaries",
-      icon: (
-        <Save2
-          variant={iconVariant("summaries")}
-          className={iconColor("summaries")}
-          size={iconSize}
-        />
-      ),
-    },
-    {
-      label: "notifications",
-      path: "notifications",
-      icon: (
-        <Notification
-          variant={iconVariant("/notifications")}
-          className={iconColor("/notifications")}
-          size={iconSize}
-        />
-      ),
-    },
+    // {
+    //   label: "Summaries",
+    //   path: "summaries",
+    //   icon: (
+    //     <Save2
+    //       variant={iconVariant("summaries")}
+    //       className={iconColor("summaries")}
+    //       size={iconSize}
+    //     />
+    //   ),
+    // },
+    // {
+    //   label: "notifications",
+    //   path: "notifications",
+    //   icon: (
+    //     <Notification
+    //       variant={iconVariant("/notifications")}
+    //       className={iconColor("/notifications")}
+    //       size={iconSize}
+    //     />
+    //   ),
+    // },
     {
       label: "Settings",
       path: "settings",
@@ -187,27 +195,22 @@ const HomePage = () => {
     },
   ];
 
-  const appearenceLinks = [];
+  const { activeDialysisUnit } = useDialysisUnitStore();
 
-  useEffect(() => {
-    console.log("====================================");
-    console.log(user, "null");
-    console.log("====================================");
-  }, [user]);
   return (
-    <div className="h-screen  w-screen flex flex-col">
+    <div className="h-screen overflow-hidden w-screen flex flex-col">
       <div className="flex flex-col  flex-initial">
         <TopNotificationBar />
         <TopNavBar />
       </div>
-      <div className="flex-1 flex">
-        <div className="px-2 py-2 w-[16%]  dark:bg-neutral-800 bg-neutral-10 dark:border-neutral-700 border-r bg-n flex  justify-between flex-col">
-          <div className="flex gap-1 flex-col">
+      <div className="flex-1 overflow-hidden flex">
+        <div className="px-4 py-4 w-[14%]  dark:bg-neutral-800 bg-neutral-10 dark:border-neutral-700 border-r bg-n flex  justify-between flex-col">
+          <div className="flex gap-2 flex-col">
             <p className="text-neutral-500 px-1 dark:text-neutral-400 capitalize text-sm">
               menu
             </p>
             <div
-              className="flex gap-1
+              className="flex gap-1.5
              flex-col"
             >
               {navlinks.map((link: any) => (
@@ -219,7 +222,6 @@ const HomePage = () => {
                 />
               ))}
             </div>
-
           </div>
 
           <div className=" inline-flex items-center justify-between px-2.5 py-2  dark:border-neutral-700  border rounded-md">
@@ -238,7 +240,7 @@ const HomePage = () => {
             />
           </div>
         </div>
-        <div className="flex-1 bg-neutral-100 flex">
+        <div className="flex-1 overflow-hidden flex">
           <Outlet />
         </div>
       </div>
