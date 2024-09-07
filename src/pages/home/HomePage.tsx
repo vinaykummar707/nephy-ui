@@ -44,7 +44,7 @@ const HomePage = () => {
   const iconColor = (path) =>
     isRouterActive(path)
       ? "text-primary-foreground"
-      : "text-primary dark:text-neutral-400";
+      : "text-stone-400 dark:text-neutral-400";
 
   const navlinks = [
     {
@@ -198,19 +198,17 @@ const HomePage = () => {
   const { activeDialysisUnit } = useDialysisUnitStore();
 
   return (
-    <div className="h-screen overflow-hidden w-screen flex flex-col">
+    <div className="h-screen overflow-hidden w-screen bg-stone-100 flex flex-col">
       <div className="flex flex-col  flex-initial">
-        <TopNotificationBar />
-        <TopNavBar />
+        {/* <TopNotificationBar /> */}
+        {/* <TopNavBar /> */}
       </div>
       <div className="flex-1 overflow-hidden flex">
-        <div className="px-4 py-4 w-[14%]  dark:bg-neutral-800 bg-neutral-10 dark:border-neutral-700 border-r bg-n flex  justify-between flex-col">
-          <div className="flex gap-2 flex-col">
-            <p className="text-neutral-500 px-1 dark:text-neutral-400 capitalize text-sm">
-              menu
-            </p>
+        {/* <div className="px-4 py-4  items-center  dark:bg-neutral-800 bg-neutral-10 dark:border-neutral-700  bg-n flex  justify-center flex-col">
+          <div className="flex gap- flex-col">
+           
             <div
-              className="flex gap-1.5
+              className="flex gap-2
              flex-col"
             >
               {navlinks.map((link: any) => (
@@ -224,22 +222,7 @@ const HomePage = () => {
             </div>
           </div>
 
-          <div className=" inline-flex items-center justify-between px-2.5 py-2  dark:border-neutral-700  border rounded-md">
-            <div className="flex space-y flex-col">
-              <p className="font-semibold dark:text-white text-sm ">
-                Dialysis Unit 1
-              </p>
-              <p className=" text-neutral-400 dark:text-neutral-500 text-xs ">
-                4th Floor - Nampally
-              </p>
-            </div>
-            <ArrowUp2
-              className="text-neutral-900 dark:text-white"
-              stroke="4"
-              size={18}
-            />
-          </div>
-        </div>
+        </div> */}
         <div className="flex-1 overflow-hidden flex">
           <Outlet />
         </div>

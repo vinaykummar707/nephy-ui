@@ -4,12 +4,12 @@ const NavItem = ({ icon, title, active, to }: any) => {
 	return (
 		<NavLink
 			to={to}
-			className={`inline-flex gap-2  rounded-md ${
+			className={`inline-flex gap-2  rounded-full ${
 				active ? 'bg-primary dark:bg-neutral-700' : 'hover:bg-neutral-100'
-			}  items-center px-3 h-10`}
+			}  items-center justify-center h-11 w-11`}
 		>
 			{icon}
-
+{/* 
 			<h1
 				className={`text-sm capitalize font-semibold  ${
 					active
@@ -18,7 +18,7 @@ const NavItem = ({ icon, title, active, to }: any) => {
 				}`}
 			>
 				{title}
-			</h1>
+			</h1> */}
 		</NavLink>
 	);
 };
