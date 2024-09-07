@@ -69,7 +69,7 @@ const AuthProtectedRoutePage: React.FC<ProtectedRouteProps> = ({
   return (
     <>
       {" "}
-      {hospitalQuery && dialysisUnitsQuery ? (
+      {true ? (
         children
       ) : (
         <>
