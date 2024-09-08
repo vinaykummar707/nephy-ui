@@ -198,7 +198,7 @@ const HomePage = () => {
   const { activeDialysisUnit } = useDialysisUnitStore();
 
   return (
-    <div className="h-screen overflow-hidden w-screen bg-stone-100 flex flex-col">
+    <div className="h-screen overflow-hidden w-screen  flex flex-col">
       <div className="flex flex-col  flex-initial">
         {/* <TopNotificationBar /> */}
         {/* <TopNavBar /> */}

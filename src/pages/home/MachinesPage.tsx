@@ -121,7 +121,7 @@ const MachinesPage = () => {
                     <div className="flex-1 flex flex-col  gap-4 justify-center items-center">
                         <BoxSearch size={48} className="text-neutral-500" variant="Bulk"/>
                         <div className="flex justify-center gap-1 items-center w-[28%] flex-col">
-                            <h1 className="text-md  font-bold">No Machines Found</h1>
+                            <h1 className="text-md  font-[500]">No Machines Found</h1>
                             <h1 className="text-xs  font- text-neutral-400  text-center">
                                 Please add machines to the dialysis unit to make dialysis
                                 running for the patients
