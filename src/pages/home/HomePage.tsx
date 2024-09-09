@@ -22,7 +22,7 @@ import {
 } from "iconsax-react";
 import NavItem from "../../components/NavItem";
 import { Outlet, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import TopNotificationBar from "../../components/TopNotificationBar";
 import TopNavBar from "../../components/TopNavBar";
 import useUserStore from "@/store/useUserStore";
@@ -31,6 +31,16 @@ import axios from "axios";
 import useHospitalStore from "@/store/useHospitalStore";
 import useDialysisUnitStore from "@/store/useDialysisUnitStore";
 import { Badge } from "@/components/ui/badge";
+import {
+  Box,
+  Button,
+  Card,
+  Container,
+  Flex,
+  Grid,
+  Text,
+} from "@radix-ui/themes";
+import ReactApexChart from "react-apexcharts";
 
 const HomePage = () => {
   const iconSize = 24;
@@ -197,37 +207,88 @@ const HomePage = () => {
 
   const { activeDialysisUnit } = useDialysisUnitStore();
 
-  return (
-    <div className="h-screen overflow-hidden w-screen  flex flex-col">
-      <div className="flex flex-col  flex-initial">
-        {/* <TopNotificationBar /> */}
-        {/* <TopNavBar /> */}
-      </div>
-      <div className="flex-1 overflow-hidden flex">
-        {/* <div className="px-4 py-4  items-center  dark:bg-neutral-800 bg-neutral-10 dark:border-neutral-700  bg-n flex  justify-center flex-col">
-          <div className="flex gap- flex-col">
-           
-            <div
-              className="flex gap-2
-             flex-col"
-            >
-              {navlinks.map((link: any) => (
-                <NavItem
-                  title={link.label}
-                  to={link.path}
-                  active={isRouterActive(link.path)}
-                  icon={link.icon}
-                />
-              ))}
-            </div>
-          </div>
+  const data = {
+    series: [
+      {
+        name: "series1",
+        data: [31, 40, 28, 51, 42, 109, 100],
+      },
+      {
+        name: "series2",
+        data: [11, 32, 45, 32, 34, 52, 41],
+      },
+    ],
+    options: {
+      chart: {
+        height: 350,
+        type: "area",
+      },
+      dataLabels: {
+        enabled: false,
+      },
+      stroke: {
+        curve: "smooth",
+      },
+      xaxis: {
+        type: "datetime",
+        categories: [
+          "2018-09-19T00:00:00.000Z",
+          "2018-09-19T01:30:00.000Z",
+          "2018-09-19T02:30:00.000Z",
+          "2018-09-19T03:30:00.000Z",
+          "2018-09-19T04:30:00.000Z",
+          "2018-09-19T05:30:00.000Z",
+          "2018-09-19T06:30:00.000Z",
+        ],
+      },
+      tooltip: {
+        x: {
+          format: "dd/MM/yy HH:mm",
+        },
+      },
+    },
+  };
 
-        </div> */}
-        <div className="flex-1 overflow-hidden flex">
-          <Outlet />
-        </div>
-      </div>
-    </div>
+  return (
+    <>
+      <Container>
+        <Flex direction={"row"}>
+          <Flex
+            py={"4"}
+            px={"8"}
+            justify={"start"}
+            direction={"column"}
+            gap={"4"}
+            flexGrow={"1"}
+            className={"  "}
+          >
+            <Flex direction={"row"} justify={"between"}>
+              <Text size="5" weight="bold">
+                Shift Management
+              </Text>
+              <Flex direction={"row"} gap={"2"}>
+                <Button>Create Shift</Button>
+                {/*<Button variant={"outline"}>Refry</Button>*/}
+              </Flex>
+            </Flex>
+            <Grid gap="2" columns={"2"} width="auto">
+              <Card>
+                <Text size="3" weight="regular">
+                  Morning Shift
+                </Text>
+                <ReactApexChart
+                  options={data.options}
+                  series={data.series}
+                  type="area"
+                  height={250}
+                />
+              </Card>
+              <Card></Card>
+            </Grid>
+          </Flex>
+        </Flex>
+      </Container>
+    </>
   );
 };
 

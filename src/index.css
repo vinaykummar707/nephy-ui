@@ -1,6 +1,6 @@
-/* @tailwind base;
+@tailwind base;
 @tailwind components;
-@tailwind utilities; */
+@tailwind utilities;
 
 /* @layer components {
 	.ptn {
@@ -10,6 +10,7 @@
 		opacity: 1;
 	}
 } */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 @font-face {
 	font-family: 'Satoshi';
 	src: url('/src/assets/fonts/satoshi/Satoshi-Variable.woff2') format('woff2');
@@ -32,7 +33,7 @@
 }
 
 /* @layer base {
-	
+
 	:root {
 		--background: 0 0% 100%;
 		--foreground: 0 0% 3.9%;
